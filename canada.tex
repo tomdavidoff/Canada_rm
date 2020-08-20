@@ -1,0 +1,737 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{amsmath}
+\usepackage[style=authoryear,uniquename=false,backend=biber]{biblatex}
+\bibliography{tombib}
+\usepackage{graphicx}
+\usepackage{pgf}
+\usepackage{longtable}
+\usepackage{pdflscape}
+\usepackage{appendix}
+\setcounter{secnumdepth}{5}
+
+
+\begin{document}
+
+\title{Prospects for Reverse Mortgage Loan Insurance in Canada}
+\author{Tom Davidoff}
+\maketitle
+
+\onehalfspacing
+
+\begin{abstract}
+
+	This paper surveys some of the larger reverse mortgage lending markets
+	around the world. By comparison, we find that Canada has a somewhat
+	small market. Loan insurance might thicken the supply of capital for
+	reverse mortgages in Canada, and Section \ref{sec:model} considers
+	pricing with and without a design innovation concerning interest
+	accumulation: a supplemental reverse mortgage loan to fund a mandatory
+	annuity purchase that pays interest during the loan's life and reverts
+	to the borrower thereafter. Calibrated to available Canadian and U.S.
+	market data, simulations indicate that this feature has mixed results
+	on the cost of insuring the borrower's put option. For older borrowers,
+	the reduction in ``moral hazard'' on loan duration and the reduction in
+	loan balance late in life leads to lower costs. However, for younger
+	borrowers, who discount the reversion of the annuity heavily, the
+	insurance cost of a higher initial LTV may outweigh the benefits. Given
+	the current interest rate environment and market loan-to-value ratios
+	and historical volatility of individual property sales, insuring
+	the put option should have a modest expected net present value cost.
+
+\end{abstract}
+
+\section{Introduction}
+
+Low interest rates and high rent and price growth rates imply that the fraction
+of a home's value attributable to net rents while a retiree inhabits the home
+is shrinking as a fraction of total value. Because retirees generally do not
+wish to move until health or death requires it, loans against the value of the
+home after exit are an increasingly natural way to finance retirement. As in
+several other countries, Canada's reverse mortgage market has been growing
+rapidly on a small base in recent years. 
+
+This document briefly surveys some of the larger reverse mortgage lending
+markets around the world in Section \ref{sec:global}. By comparison, Section
+\ref{sec:canada} shows Canada has a somewhat small market. Loan insurance might
+thicken the supply of capital for reverse mortgages in Canada, and Sections
+\ref{sec:model} and \ref{sec:results} consider pricing with and without a
+design innovation concerning interest accumulation. The cost of insuring
+reverse mortgage loans appears quite small in the current environment, assuming
+price volatility in line with recent Canadian and U.S. history.
+
+\section{\label{sec:global} The global market for reverse mortgage loans}
+
+A reverse mortgage typically involves a lump sum, credit line, or guaranteed
+income stream given from a lender to an older homeowner in exchange for
+repayment at loan termination. Termination occurs at the earliest of a
+voluntary prepayment, a move while alive, or death of the borrower. Typically
+the lender has no recourse to assets other than the home, and no principal or
+interest payments are required until the date of loan termination. The borrower
+is responsible for property tax and insurance payments as long as they remain
+in the home. Borrowers may be single or married couples; the former are easier
+to consider for termination purposes. 
+
+The expected present value of collateral at termination, and hence loan to
+value (LTV) ratios at origination, will rise with a borrower's age and fall
+with interest rates, as the discounted value of collateral at termination can
+be expected to rise with current age and fall with discount rates.
+
+Figure \ref{fig:ltv} plots mark-to-market LTV over time for a loan with an
+initial 50\% LTV for a 70 year old borrower, with the borrower's age on the
+horizontal axis on the top panel. Due to the non-recourse feature, the
+fundamental risks are that the borrower will remain in the home for too long,
+with too large of a gap between the investors' discount rate and home price
+appreciation. With continual compounding and constant rates of interest on the
+loan $r$ and growth of the collateral value $g$, an initial LTV of $L$, the
+mark-to-market LTV at date $t$ is:
+
+\begin{equation}
+	LTV(t) = Le^{\left[r-g\right]T}.
+\end{equation}
+
+The value of the limited liability ``put option'' induced by the non-recourse
+provision per dollar of initial property value, given a termination $t$ periods
+from origination, discounting at rate $\delta$ is equal to:
+
+\begin{equation}
+	\label{eq:put}
+	p(t) = \max\left(0,LTV(t)-1\right)e^{-\delta t}
+\end{equation}
+
+The put option is ``in the money'' in Figure \ref{fig:ltv} after the date at
+which the LTV ``crosses over'' 1 on the vertical
+axis.\footnote{\textcite{ChinloyMegbolugbe}.}
+
+\begin{figure}
+	\caption{\label{fig:ltv} Loan to value ratio for a 50\% loan at 5\% interest over time for different home price growth rates}
+	\pgfimage[height=9cm]{ltv}
+\end{figure}
+
+Because the put option may have considerable value, and may induce contractual
+problems (see below), reverse mortgage debt may be an expensive source of
+funds, even risk-adjusted. We thus expect that borrowers will be drawn from the
+high end of the distribution of home value to other asset ratios. This has
+certainly been true in the U.S. (\textcite{Davidoffhecmdemographics}) and
+anecdotally appears to be the case in Canada.
+
+A fundamental tension in reverse mortgage design is between initial LTV and put
+option value. Conditional on LTV, there are multiple ways to price and allocate
+put option risk among investors. Loan insurance presumably facilitates
+securitization, leaving duration risk to investors. Loans may be fixed or
+variable rate.
+
+Among the best-developed markets for reverse mortgages globally are the US, the
+UK, South Korea, and Australia. The Chinese market, despite a population with
+many very low income, high housing wealth seniors, is tiny, per
+\textcite{HanewaldBatemanFangWu}. Japan's government offers reverse
+mortgage-type specialized loans, but with restricted use of the proceeds.
+
+In both the U.K. and Australia, both reverse mortgages (``lifetime mortgages'')
+and ``home reversion schemes'' are available. The latter are forward sales of a
+fixed fraction of the proceeds from the seniors' home, but in both countries
+reversion schemes are niche products with much lower market share than reverse
+mortgages. Home reversion schemes do not explicitly feature a put option, but
+the lender loses money as the borrower's tenure grows.\footnote{As with reverse
+mortgages, a high LTV reversion plan will provide borrowers with poor
+incentives to move while aive.}
+
+Per \textcite{ASIC}, through December 2017, Australian reverse mortgage
+balances were AUD 2.5 billion on a total population of 24.6 million, with 72\%
+lines of credit and 11.3\% lump sum.\footnote{\textcite{ASIC}, there might be a
+stock versus flow issue in my reading.} However, \textcite{Kobayashietal},
+citing Deloitte and SEQUAL, find larger numbers of 41,500 outstanding loans
+with a balance of 3.6 billion AUD through 2013. This suggests a market
+penetration rate of roughly 1\% given the senior share of households and high
+homeownership rates.
+
+LTV ratios appear to be quite low, commonly 30\% or lower for 70 year olds
+based on a government calculator, with interest rates above 6\%.\footnote{Per
+\texttt{https://moneysmart.gov.au/retirement-income/reverse-mortgage-calculator\#section-details}.
+and
+\texttt{https://www.canstar.com.au/home-loans/reverse-mortgages/what-might-a-reverse-mortgage-cost-over-time/}}
+Australia has a ``Pension Loan Scheme'' run by its government that allows only
+a regular payment option. This market is quite small, at 1,100 users as of
+October, 2019.\footnote{``Pensioners Win Reverse Mortgage Reprieve'', Financial
+Review, Joanna Mather, October 23, 2019}.
+
+The UK lifetime income market appears significantly larger than Australia's,
+with annual originations of roughly \pounds 3.9 billion, 44,870 originations in
+2019 and a similar number in 2018.\footnote{Per
+\texttt{https://www.equityreleasecouncil.com/news/2019-was-a-year-of-consolidation-as-equity-lease-lending-remains-at-3-9-billion/}.}
+Combined with older figures from \textcite{Kobayashietal}, this suggests
+roughly 500,000 outstanding reverse mortgage loans and up to a 10\% share of
+the potential market of senior homeowners, far larger than in other
+countries.\footnote{There are roughly 6.5 million UK households over age 65,
+with 78\% homeowners and only 6\% still paying a mortgage:
+\texttt{https://www.ageuk.org.uk/globalassets/age-uk/documents/reports-and-publications/later\_life\_uk\_factsheet.pdf}.}
+Neither the UK nor Australia appears to have a securitization or insurance
+market for reverse mortgage loans. Rates appear to be somewhat lower in the
+thicker UK market and available LTV ratios somewhat higher: a 70-year old based
+on one calculator can obtain a 43\% LTV at 5.5\% interest.
+
+A relatively recent product offering in the U.K. market is ``Retirement
+Interest-Only'' (RIO) mortgage loans. These require income sufficient to pay
+interest, but not principal, and are not due and payable until pre-defined life
+events occur. Rates appear somewhat lower and LTVs somewhat higher than
+lifetime mortgages.
+
+Until recent growth in the U.K. market, South Korea and the U.S. appeared to be
+the largest markets for reverse mortgage loans, and notably both featured
+government guarantees to investors. In South Korea, the JTYK (JooTaekYeonKeum
+``Housing pension'') program offers relatively low interest rates (under 2\%
+spread above 6-month COFIX rate, currently near 2\%, inclusive of the guarantee
+fee). The Korean Housing Finance Agency guarantees these
+loans.\footnote{Kobayashietal}. Notably, in Korea, while a lump sum is
+available, a life annuity appears to be the favored drawdown style, and reverse
+mortgage borrowers appear to have \emph{higher} pre-retirement incomes than
+non-borrowers. The Korean program was originating roughly 5,000 loans per year
+in the mid-2000s, up to 10,000 to 11,000 in each of 2016 through 2019,
+suggesting a stock of roughly 50,000 loans on a 65+ homeowner household
+population of roughly 5 million, for a 1\% penetration rate.
+
+The U.S. Home Equity Conversion Mortgage (HECM) has been sponsored and
+guaranteed by the U.S.  Federal Housing Administration and run through the
+Department of Housing and Urban Development since the early 1990s.
+\textcite{CBO_HECM} estimates that as of the end of fiscal year 2018, \$111
+billion of HECM credit was outstanding, for a penetration rate of 1.5\% by
+value.  Combining recent estimates from \textcite{CBO_HECM},
+\textcite{JointCenter}, and \textcite{ACL}, there are approximately 40 million
+homeowners over age 65, and roughly 400,000 outstanding HECM loans, for a
+penetration rate of 1\%. Growth has slowed dramatically since the Great
+Financial Crisis. In 2007, there were 107,000 originations, in 2019, just
+31,274 (per the National Reverse Mortgage Lenders' Association). Loan to value
+ratios have fallen, and for seniors with low incomes or poor credit histories
+(a sizeable fraction of HECM borrowers), a hold-back of proceeds was introduced.
+
+The U.S. experience has been notable for very poor \emph{ex-post} performance
+of the FHA insurance fund. Because a large fraction of reverse mortgages were
+originated at the peak of the mid-2000s housing boom, in the states with the
+largest housing cycles, and in the neighbourhoods with the worst housing cycles
+within markets, a large number of loans have terminated with outstanding
+balances greater than collateral
+value.\footnote{\textcite{Davidoffhecmdemographics}.} As
+\textcite{Haurindefault} and \textcite{Begleyetal} document, a surprisingly large
+percentage of HECM loans have fallen into property tax and insurance default,
+which puts servicers and FHA in a difficult position. Allowing non-performing
+loans to fester with no payments will generate large losses, but displacing
+delinquent seniors who have run out of cash is also unattractive both for
+policy and reputational reasons. Responding to this problem, FHA introduced the
+``Life Expectancy Set Aside.'' (``LESA'') That set aside is placed into an
+account that grows with time, and can only be used to fund property tax and
+insurance payments, although there is limited protection against
+longevity.\footnote{This is described in FHA HECM Mortgage Letters 2014-21 and
+2015-09.Upon the loan's termination, LESA reverts to borrowers, undoing true
+annuitization.} From the 2019 actuarial analysis: ``The Economic Net Worth is
+defined as cash available to the Fund plus the Net Present Value (NPV) of all
+future cash outflows and inflows that are expected to result from the mortgages
+currently insured by the MMIF.  As of the end of Fiscal Year 2019, Pinnacle’s
+Actuarial Central Estimate (ACE) of the MMIF HECM Cash Flow NPV is negative
+\$11.228 billion.  The total capital resource as reported in FHA’s audited
+financial statement is \$1.694 billion at the end of Fiscal Year 2019. Thus,
+the estimated economic net worth of the MMIF is negative \$9.534 billion.''
+
+A notable feature of the U.S. market is a healthy market for HECM mortgage
+backed securities (HMBS). These are pass-through claims on pools of HECM loans,
+with Ginnie Mae guarantees at the pool level, on top of FHA guarantees.
+Investors are protected in terms of timing risk further by FHA's right and
+obligation to purchase loans out of pools when loan-to-value (based on original
+appraisals) hit just below 100\%.\footnote{This repurchase saves guarantee fees
+to the government, as investors earn rates in excess of the riskless rate.}
+
+Recently, private, uninsured securitized ``jumbo'' reverse mortgage loans that
+allow constant loan to value ratios at collateral values greater than those
+supported by FHA insurance have grown to roughly 25\% of reverse mortgage by
+dollar
+volume.\footnote{\texttt{https://www.newviewadvisors.com/commentary/hmbs-december-2019-stocking-half-full-in-2018-then-hang-two-stockings-this-year/}}
+Interest rates appear to be similar to HECM at 4.5\% to 5\%. To my knowledge,
+these loans are not securitized.
+
+\section{\label{sec:canada} The Canadian Reverse Mortgage Market}
+
+A significant number of Canadian seniors may be characterized as house rich,
+with a moderate number both house-rich and cash-poor, and hence natural targets
+for a reverse mortgage loan. The high value of homes, particularly in Greater
+Toronto and Vancouver is well-known.  Median income among single Canadians over
+65, per the 2016 Census was \$28,325. Poverty rates were relatively low, at
+4\%.
+
+The reverse mortgage market in Canada has grown rapidly with home prices in
+recent years, but on a very small base. The oldest and largest product, the
+Canadian Home Income Plan, owned by Home Equity Bank, holds a portfolio of
+approximately \$4 billion. CHIP originations began in 1986 in Vancouver, and
+2019 originations at \$820 million represented roughly 20\% of the stock of
+balances. CHIP offers loan to values up to 55\%. Posted interest rates on CHIP loans
+vary from 5\% for a one-year term to 6\% for a five year term. CHIP offers both
+lump sum and line of credit advances. CHIP originations appear to be growing at
+roughly 20\% per year. With roughly 3 million households in Canada headed by a
+senior over 65, and assuming a \$200,000 average loan balance, CHIP has a
+market share of roughly one-half of one percent of eligible Canadian owners. 
+
+A new entrant to the market is Equitable Bank. They originated only \$20
+million in loans in 2019, but have been doubling or tripling volume in recent
+years. Equitable Bank offers somewhat lower rates than CHIP, at 4.24\% to
+4.84\$ from 1 to 5 year terms, and lower origination fees, but lower
+loan-to-value ratios, at only 25\% at age 70, and only 40\% at 85.
+
+A significant challenge to reverse mortgage lending in Canada appears to be the
+funding model. U.K. lenders appear willing to offer fixed rate loans at
+moderate interest rates. In Korea, banks, which are not liquidity constrained
+(anecdotal), are willing to retain loans on their balance sheets, as they have
+guarantees from the federal government that they will be repaid in full. 
+
+The Canadian banks fund loans through GICs.\footnote{In late 2019, CHIP
+completed its first sale of whole loans to another Canadian lender, while
+retaining servicing rights and obligations.} As a result, they typically do not
+commit to interest rates past the first five years of a loans life. An
+attentive prospective borrower might therefore be worried about a hold-up
+problem. Should the home appreciate significantly after origination, an
+unscrupulous lender could raise interest rates dramatically. Borrowers would
+have the right to sell at term, but have presumably used a reverse mortgage
+because they wish to remain in their homes for a long time.
+
+\section{\label{sec:model} Pricing Reverse Mortgage Insurance }
+
+Were Canadian lenders able to sell cashflows to patient investors at
+origination, they could presumably commit to interest rates or at least margins
+over an index at origination. 
+
+Almost all securitization of reverse mortgages appears to have taken place in
+the U.S., and the overwhelming majority of securitized loans are HECMs, backed
+by insurance. In Canada, the residential mortgage backed securities market
+outside of CMHC insurance is small, suggesting that reverse mortgage loan
+insurance might be critical to creating a market for reverse mortgage backed
+securities, and in turn a way for lenders to commit to reasonable interest
+rates beyond the first five years of a reverse mortgage loan's life.
+
+This section considers two quantitative questions: what are fair insurance premiums for put
+option risk in Canada under standard product design? The second is how an
+innovation to design might reduce the required insurance premium.
+
+\subsection{Standard reverse mortgage put option pricing in Canada}
+
+Computing a fair premium for standard reverse mortgage loans of a given LTV and
+interest rate requires considerable modeling. Equation \eqref{eq:put} shows
+that put option value rises with loan duration and the gap between interest
+rates and price growth over the loan's life. The critical questions
+for pricing are thus: 
+
+\begin{enumerate}
+	\item How long will loans survive under different price growth and interest rate trajectories? 
+	\item What are reasonable price and interest rate parameters to consider?
+\end{enumerate}
+
+Due to the non-recourse nature of reverse mortgage loans, computing a fair
+price for insurance should amount to computing the expectation across jointly
+determined interest rate, price, mortality, and mobility paths.
+
+\subsection{Loan to value ratios at origination}
+
+The most common product, the Canadian Home Income Plan, offers borrowers loan
+to value ratios that rise with borrower age. A recent look at CHIP's website
+reveals quotes of 35.75\% loan-to-value at age 65, 38.3\% at 70, 43\% at 75,
+and 50\% at age 78. A relatively new ``CHIP Max'' product offers higher loan to
+value ratios at a higher spread, roughly 7\% additional loan-to-value (hitting
+a maximum of 55\% at age 78) for an additional 1.5\% in annual interest: CHIP
+and CHIP Max special 1-year fixed rates are currently 4\% and 5.5\%. The
+Equitable Bank offerings, with lower rates and loan to value ratios would
+require considerably less cost to insure.
+
+The reverse mortgage product considered in simulations has the same loan to
+value ratios as offered by CHIP Max at ages 65, 70, and 78, but different
+interest rates. As the simulations indicate, it would be very difficult to
+rationalize CHIP spreads entirely based on default premia, given the current
+spreads of roughly 3.5\% and 5\% over one-year treasuries (roughly .25\% at the
+time of writing) for reasonable risk premia.    
+
+\subsection{Terminations}
+
+Barring refinance, reverse mortgage terminations occur at the earlier of death
+or moves while alive. To approximate mortality, I consider a married couple
+with each partner the same age and opposite genders and assume independent
+mortality. A termination by death occurs when the last remaining spouse
+dies\footnote{The death of one partner may speed the death of the other, a
+possibility ignored here. I similarly ignore the possibility that death of a
+spouse would trigger a change in the likelihood of a move while alive. See
+\textcite{Lin2005}.} The probability of a death terminating a stay in the home
+in a given year is the probability that neither spouse has died up to that year
+times the product of male and female mortality, plus the probability that the
+husband has died in a prior year, but the wife survived times female mortality,
+plus the probability that the husband alone is alive times male mortality.
+
+Death probabilities may be considered exogenous functions of age, but with a
+more generous put option, selection on longevity may be adverse: the put
+option described in \eqref{eq:put} rises with age.\footnote{Jeanne Calment, the
+famously long-lived French woman, was a ``viager'' borrower in France.}
+However, likely in part because reverse mortgage borrowers tend to have low incomes,
+realized mortality among HECM borrowers appears to be similar to population
+averages, per \textcite{YangMillerJiang}.
+
+As observed in \textcite{DavidoffWelke}, there is an important moral hazard
+dimension to moves while alive: once the accumulated loan balance has ``crossed
+over'' and the put option is in the money, there is little financial incentive
+for the borrower to move. Property taxes and insurance are payable, but there
+is no equity or debt cost for an underwater borrower remaining in the home.
+That paper and several industry studies have observed empirically that
+terminations are much more rapid in the U.S. when mark-to-market LTV is lower. 
+
+Absent proprietary data on Canadian reverse mortgage terminations, the analysis
+below combines data sources to estimate a baseline mobility rate plus an effect
+of increased home equity consistent with the moral hazard problem.
+\textcite{HousingNeeds} indicates that all living senior Canadian homeowners
+moved at a rate of roughly 4\% while alive, in 2016. National home price growth
+in this period was a bit above historical averages, at roughly 7\%, per the
+Canadian Real Estate Association's Home Price Index for January, 2015-January,
+2016. In the same year, British Columbia's Lower Mainland saw appreciation of
+19\% and saw mobility roughly 1 percentage point greater than the general
+population.\footnote{Based on general population mobility rates.} In 2010-2011,
+the CREA index rose by 1.8\%, and mobility was roughly the same among all
+Canadians as in 2015-2016. Among British Columbians, reported mobility among
+seniors was roughly 1\% lower in 2010-2011, with price growth close to zero.
+These facts are consistent with a non-trivial sensitivity of mobility to home
+equity growth among British Columbians and possibly Canadians generally.
+ 
+The U.S. experience with HECM reveals a much clearer relationship between
+terminations and price appreciation. A problem with that data is that a large
+number of HECM terminations are refinances: HECM-to-HECM refinance has
+historically been inexpensive to insure relative to new originations.
+
+For the HECM data, I have estimated mark-to-market loan-to-value ratios for
+each HECM loan from the 2011 FHA database of all HECM originations. For each
+loan, the closing date, termination date, initial loan-to-value ratio and
+adjustable interest rate spread can be observed. Given the underlying interest
+rate (usually 1-year treasuries or LIBOR) time series and the Zillow Zip Code
+home price index, a period-by-period loan-to-value ratio can be computed. In a
+linear probability model, controling for age-specific mortality, and the age of
+the loan, a 100\% increase in LTV is associated with 1.1\% monthly reduction in
+termination speed. Some of the LTV effect is related to easy refinance, and we
+do not know how a more appropriately priced refinancing scheme would affect
+that rate of excess terminations.
+
+In combination, the data support an assumption of a baseline of 3\% mobility
+while alive, plus 1\% annually for each 10\% reduction of mark-to-market LTV
+from 100\%.
+
+\subsubsection{Forward-looking behaviour}
+
+There is considerable evidence that reverse mortgage borrowers are not
+strategic in their choices in the sense of considering the value of the put
+option. While selection into HECM was quite adverse in terms of \emph{ex-post}
+price movements, \textcite{DavidoffWetzel} show that HECM borrowers do not use
+credit strategically: borrower with positive credit line balances and negative
+equity are no likelier to draw remaining credit prior to a move than other
+borrowers. I essentially take this as an excuse to sidestep the very difficult
+dynamic programming problem of strategic exit from the home. That said, it is
+clear that put value optimization combined with budget-constrained utility
+maximization would involve a more rapid exit rate when mark-to-market LTV is
+lower, per \textcite{DavidoffWelke}.
+
+\subsubsection{Terminations and life annuities}
+
+The proposed design innovation is to offer life annuities that pay interest
+during the life of the loan, but revert to the borrower upon termination, as
+described in \textcite{DavidoffBrookings}. This provides an additional
+incentive beyond home equity to exit the home while alive. A question arises as
+to how a borrower would react to the annuity in contemplating a move. The
+annuity must be converted to present dollars, requiring a discount rate. I set
+this equal to the loan interest rate (as would be appropriate for initial draws
+less than a credit line if offered). I assume population mortality, with a
+pricing load of 15\%. That is, for the hypothesized married couple, the
+provider calculates the probability that either of the couple remains alive for
+each age up to 110 (at which point it is assumed that both have died) and
+discounts (at the riskless rate) to calculate the cost to provide one dollar of
+income each year until death. That cost per dollar of benefit is multiplied by
+1.15. This would be moderately high for U.S.  loads \textcite{Lockwood}, but
+appears a bit low relative to CANNEX quotes.
+
+\subsection{Market Price implied home price growth and volatility versus historical parameters}
+
+The propensity of HECM borrowers to default on tax and insurance obligations is
+an example of the possibility of endogenous price growth. Borrowers have little
+incentive to maintain homes while underwater, a problem shared with the forward
+mortgage market. \textcite{Davidoffhomemaint} observes that older U.S.
+homeowners generally undermaintain their homes and see weaker price
+appreciation than younger owners.
+
+One way to calibrate the mean and volatility of home prices is to consider
+forward mortgage insurance premiums. Given CMHC's central role in Canadian
+mortgage insurance pricing, their implied beliefs about risk-adjusted price
+movements are particularly interesting.
+
+It is possible to use CMHC's pricing to observe implied price growth and
+volatility. Examples of this approach include
+\textcite{DowningStantonWallace} and a note I produced on the BC Home
+Partnership program. The latter document calculated that CMHC's pricing as of
+2016 best fit a lognormal distribution of home prices with parameters $\mu$ =
+-1\%, $\sigma$ = 16.5\%, and a default probability linear in underwaterness
+with slope 36\%. These parameters reflect both risk neutral expectations and a
+combination of Crown and market aversion to price risk. 
+
+Updating to current CMHC pricing, and contemplating a more realistic
+expectation of zero real price growth, consider the volatility required to
+rationalize pricing. To do that, I set as a target minimizing the squared
+profits from insuring mortgage loans under CMHC's posted prices.\footnote{The
+target prices are these: at 80\% LTV, a fee of 2.4\% of the loan amount; at
+85\%, a 2.8\% fee; and 90\%, a 3.1\% fee; and at 95\% a 4\% fee.} Assuming zero
+nominal price appreciation, and given current interest rates, an interest
+
+To approximate expected losses as a fraction of the insured amount, suppose
+that the probability of a loan defaulting at a given date is a constant $m$
+times the shortfall in percentage terms $\frac{L-V}{L}$, where $L$ is the loan
+to value, and equal to zero if the property is not underwater. Then the
+expected loss on a loan at a given date is:
+
+\begin{equation}
+	\label{eq:loss_mi}
+	x = m\int_{0}^{L}\left[1-\mathrm{e}^{z}\right]^{2}f(z)dz,
+\end{equation}
+
+where $z$ is the property value as a fraction of initial value. With a
+lognormal distribution of price growth rates, i.i.d. across time, at any given
+date, the expected MI loss would then be:
+
+\begin{align}
+	\label{eq:loss_mi}
+	x & = m\left[\Phi\left(log(L),\mu,\sigma\right) - \frac{2}{L}\mathrm{e}^{\mu+\sigma^{2}/2}\Phi\left(-\sigma+b,0,1\right) + \mathrm{e}^{2\mu + 2\sigma^{2}}\frac{1}{L^{2}}\Phi(-2\sigma+b,0,1)\right]\\
+	b & \equiv \frac{\ln L - \mu}{\sigma}.
+\end{align}
+
+To parameterize the problem for a CMHC-insured loan I assume further:
+\begin{itemize}
+	\item Administrative costs of 25\%, per recent Genworth financial statements, and assume them all to be marginal costs;
+	\item 25-year amortization with semi-annual compounding at an interest rate of 2.5\%
+	\item Per \textcite{SchwartzTorous}, all defaults happen within the first 10 years of a loan's life. 
+	\item Set 1 (so that \emph{all} loans would default if the homes were worthless and 50\% would default at an LTV of 50\%), and assuming no recourse, 
+	\item Expected growth $\mu$=0.
+\end{itemize}
+
+Breakeven pricing (minimizing squared profits) implies $\sigma=23\%.$ While
+this should be thought of as a risk-adjusted parameter, it is an extremely high
+value, as this would suggest a standard deviation of
+$.225\times\sqrt{10}\approx 70\%$ in year 10. Figure \ref{fig:t_sd},
+illustrates that this greatly overstates realized standard deviations. A larger
+value of $m$ may be thought of as a risk aversion parameter. As deep in the
+money default options are not commonly observed for CMHC loans, it is difficult
+to know if the assumed value of $m=1$ should be considered to incorporate a
+reasonable degree of risk aversion for a Crown Corporation with respect to
+housing market risk.
+
+Figure \ref{fig:t_sd} plots the standard deviation of realized log price
+changes in Greater Vancouver transaction data between 2000 and
+2019.\footnote{The source is multiple listing service data.} Repeated
+transactions of the same property are put into bins corresponding to the number
+of quarters for which they were held. For example, a home sold in quarter 1,
+2015 and sold in quarter 3 2018 would be in the same group as a home sold in
+quarter 2, 2008, and sold in quarter 4, 2011. The standard deviations thus draw
+on both cross-sectional and time series variation in price growth across homes.
+The mortgage insurance position includes exposure to both. 
+
+\begin{figure}
+	\caption{\label{fig:t_sd} Standard deviation of individual home price transactions by length of holding period in Greater Vancouver (orange dots) versus 5\% times root of years since origination (blue dots). Repeated sale transactions pooled within holding periods in quarters across homes and time periods.}
+	\pgfimage[height=8cm]{t_sd}
+\end{figure}
+
+Figure \ref{fig:t_sd} is consistent with an emerging view: the variance of
+prices for individual transactions is not linear in time. Rather, there is a
+significant intercept along with a modest component that appears to add to the
+standard deviation with the square root of time. Per \textcite{Giacoletti},
+some, but not all of this relates to the selection described by
+\textcite{Sagi}. Large fluctuations in both market and idiosyncratic home
+values trigger sales, so short tenures are associated with large movements in
+price.
+
+Table \ref{tab:crea} presents the standard deviation of 15 1-year (January to January) log price changes in the CREA home price index and 5-year non-overlapping changes (2010-2005, 2015-2010, and 2020-20150. The results are broadly consistent with a $t$-period volatility with variance linear in time. Unfortunately, CREA's short panel, going back to 2005, cannot inform the shape of standard deviations in time. Teranet, considered in the bottom of Panel \ref{tab:crea} provides data back to 1990 for the cited areas. Teranet June-June, except for 1990 is July, first month of coverage.
+
+\begin{table}
+	\caption{\label{tab:crea}Standad deviations of nominal 1 and 5 year home price index log growth yeare CREA index, top panel, 2005-2020. Bottom panel: Teranet index, 1990-2020. Select Canadian cities}
+	\begin{tabular}{lcc}
+		\hline
+		Metro area & 1-year gains standard deviation (CREA) & 5-year gains standard deviation (CREA)\\
+		\hline\hline
+		 Calgary & .051 & .267 \\
+		 Montreal & .024 & .057\\
+		 Ottawa & .033 & .087\\
+		 Toronto & .051 & .091\\
+		 Vancouver & .083 & .134\\
+		\hline
+	\end{tabular}
+	\hrule
+
+	\begin{tabular}{lcc}
+		\hline
+		Metro area & 1-year gains standard deviation (Teranet) & 5-year gains standard deviation (Teranet)\\
+		\hline\hline
+		 Halifax & .031 & .098\\
+		 Quebec & .040 & .176\\
+		 Montreal & .038 & .157\\
+		 Winnipeg & .045 & .175\\
+		 Vancouver & .070 & .155\\
+		 Victoria & .067 & .191\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Taking in all of this evidence suggests volatility consisting of two
+components: a one-time 10\% standard deviation of individual returns applied to
+a sale in any period (based on a view that some, but not all of the
+idiosyncratic constant variation in prices identified in Figure \ref{fig:t_sd} and
+in \textcite{Sagi} and \textcite{Giacoletti} stems from selection into
+transactions rather an underlying process), and a standard process with
+standard deviation of $t$ period capital gains $\sigma\sqrt{t}$. Table
+\ref{tab:crea} suggests a value of 5\% as a moderately high level for the
+market-level $\sigma$.\footnote{The US Federal Housing Finance Agency repeated
+sale index goes back farther than 1980 for some cities. In that data set, as in
+the Canadian data, there is support for at least a $\sigma\sqrt{t}$ formulation
+for the volatility parameter, with the 1-, 4- and 9-year horizons yielding
+standard deviations of .08, .24, and .44, respectively.} The annual standard
+deviation is incremented by 1.5\% to a total of 6.5\% to reflect interest rate
+risk.\footnote{\textcite{CoccoLopes} use value of 1.8\% for the standard
+deviation of the real rate. There may be negative correlation between real
+growth and interest rates. Their difference is sufficient for computing put
+value.}
+
+\subsection{Product Design}
+
+\textcite{DavidoffBrookings} proposes an annuitized reverse mortgage design that
+may save considerable insurance costs. Like a Retirement Interest Only loan, it
+is possible to design interest-paying reverse mortgages that need not be income
+tested as U.K. RIO loans are. In particular, if borrowers must use some loan
+proceeds to finance a life annuity with proceeds used to make partial interest
+payments as long as the loan survives, there are two actuarial advantages:
+
+\begin{enumerate}
+	\item The loan balance over time depicted in Figure \ref{fig:ltv} tilts
+		up in the early years of the loan's life, but down later.
+	\item Because the annuity reverts to the borrower after the loan is
+		terminated, the borrower retains an incentive to move out of
+		the home even if the LTV grows to exceed 100\%.
+\end{enumerate}
+
+With a 100\% LTV (inclusive of the annuitized component), and with
+deterministic growth and interest rates, this product would be equivalent to a
+sale leaseback, with the annuity providing exactly enough income to pay rent.
+
+Data on US reverse mortgage borrowers finds significant impatience to spend
+and liquidity constraints that bind, but the introduction of this feature might
+introduce borrowers with greater patience, as loan cost might be reduced and
+the annuity feature should appeal to light discounters. This feature could also
+affect duration risk, as the annuity enhancement may appeal more to the
+long-lived..
+
+
+Realistically, consumer impatience and distaste for annuitization, combined
+with stochastic prices, make a 100\% LTV stylized annuitized reverse mortgage
+infeasible. However, \textcite{DavidoffBrookings} shows that for reasonable
+initial LTV, a partial annuitization of remaining home equity can offer
+consumers the same initial proceeds with lower up-front or interest-based
+insurance premiums while holding lender profits constant.
+
+\section{\label{sec:results} Insurance Costs Calibrated to the Canadian Context}
+
+To estimate the cost of providing reverse mortgage insurance, we must define
+the loan terms, parameterize interest rates, the evolution of individual home
+prices, and the probabilities of a reverse mortgagor's exit from their home.
+
+Table \ref{tab:parameters} summarizes the parameterization described above:
+
+\begin{landscape}
+
+	\begin{table}
+		\caption{\label{tab:parameters} Parameterization of the reverse mortgage insurance calibration. Insurance cost is the expected value across 10,000 home price paths.}
+		\begin{tabular}{llll}
+			\hline
+			Parameter & Value\\
+			\hline\hline
+			Borrower ages (male and female spouses) & 65-65 and 78-78\\
+			Reverse mortgage loan-to-value & From CHIP and CHIP MAx: \\
+			Riskless Rate & 0.25\%. 1.5\%, 3\%\\\
+			Loan interest rate & 2.5\% spread over riskless \\
+			Borrower discount rate & Loan interest rate\\
+			Lender discount rate & riskless rate + term spread of .5\%\\
+			Expected price growth per year & 0\\
+			Persistent 1-time home price idiosyncratic std. dev & .15\\
+			Std deviation of annual value \% change, iid shocks & .065\\
+			Annuity load & 15\%\\
+			Probability of move while alive & 4\%/year + .15$\times \left[\text{PV(annuity)}+\max(0,\left[1-LTV\right]\right]$\\
+			Initial Loan-to-value ratio by age & 65: 42.75\% ; 70: 45.5\% ; 78: 55\%\\
+			Constant move probability & 3\% per year\\
+			Increased probability per reduction in LTV below 100\% & 10\%.\\
+			Borrower discount rate & Loan interest rate (riskless + 2.5\%)\\
+			\hline
+		\end{tabular}
+	\end{table}
+\end{landscape}
+
+Table \ref{tab:results} presents simulated insurance costs at different levels of mandatory annuitization of residual home equity for loans with LTVs as currently offered under the CHIP Max program. 
+
+The borrower's exit from the home is probabilsitic in that conditional on survival up to age $t$:
+
+\begin{align}
+	\text{Prob terminate at  }t & = \text{mortality}_{t} + \left[1-\text{mortality}_{t}\right]sG,\\
+	G & \equiv \max\left(\text{home equity at }t,0\right) + a\sum_{s=t}^{110}\frac{\text{prob survive to }s | \text{alive at} t}{\text{prob survive to t} \left[1+r+v\right]^{s-t}}
+\end{align}
+
+The excess annuitization paying $a$ per year works as follows. If the LTV is $x$ and annuitization is $f$ of the remainder, the initial loan balance is increased to purchase an annuity with $fx$. This annuity is priced based on the riskless discount rate, but with a lump-sum subtraction of the 15\% load. The annuity pays a constant real payout until death. That payout pays interest up to the date of any move while alive, and reverts to the borrower thereafter. $s$ is the sensitivity of 10\%, assumed to apply equally to the annuity, with discount rate $v$ added to the riskless rate, assumed equal to the loan interest rate spread of 2.5\% (roughly equal to market CMHC insured mortgage spread for 10-year loans and to HECM spreads in the U.S.)
+
+The key results are as follows:
+
+\begin{itemize}
+	\item In the current low interest rate environment, the expected value of the put option is low. At a 3.5\% loan interest rate (based on a 1\% riskless rate), the put is worth well under 1\% of property value in present discounted value.
+	\item Put option value grows with a higher interest rate (spread between riskless rate and expected price growth, which does not vary across simulations). This follows immediately from equation \eqref{eq:put}. At a loan interest rate of 5.5\% (the 3\% riskless rate plus a 2.5\% spread described in Table \ref{tab:results}), the put option would cost 2\% to 2.5\% to insure given risk neutrality and the parameters assumed.
+	\item Increased annuitization of proceeds beyond the LTV limit reduces the default insurance cost for older borrowers, but not for younger borrowers. This can be seen by observing the relationship between the ``Annuitized'' column and the ``Insurance Cost'' column for the different borrower ages holding the interest rate constant. The reason for this is that borrowers are assumed to discount the annuity heavily: the annuity is priced to the riskless rate, but borrowers discount the future annuity cashflows at the higher (by 2.5\%) loan interest rate. With a longer duration, the annuity cashflows are more heavily discounted for young borrowers, and hence they have a weaker effect of incentivizing exit from the home. The combination of the borrowers' high discount rate and the loading above actuarially fair pricing are required to obtain the adverse impact of annuitization on pricing at younger ages.
+\end{itemize}
+
+\begin{table}
+	\caption{\label{tab:results} Simulation results}
+	\begin{tabular}{llll}
+		\hline
+		Riskless Rate & Annuitized \% & Borrower Age & Insurance Cost\\
+		\hline\hline
+		0.01& 0& 65& 0.0027\\
+		0.01& 0.1& 65& 0.0029\\
+		0.01& 0.25& 65& 0.0031\\
+		0.01& 0.4& 65& 0.0035\\
+		0.01& 0.5& 65& 0.0041\\
+		\hline
+		0.01& 0& 70& 0.0026\\
+		0.01& 0.1& 70& 0.0025\\
+		0.01& 0.25& 70& 0.0024\\
+		0.01& 0.4& 70& 0.0024\\
+		0.01& 0.5& 70& 0.0026\\
+		\hline
+		0.01& 0& 78& 0.0042\\
+		0.01& 0.1& 78& 0.0035\\
+		0.01& 0.25& 78& 0.0028\\
+		0.01& 0.4& 78& 0.0024\\
+		0.01& 0.5& 78& 0.0024\\
+		\hline
+		0.03& 0& 65& 0.0229\\
+		0.03& 0.1& 65& 0.0239\\
+		0.03& 0.25& 65& 0.0256\\
+		0.03& 0.4& 65& 0.0278\\
+		0.03& 0.5& 65& 0.0296\\
+		\hline
+		0.03& 0& 70& 0.0209\\
+		0.03& 0.1& 70& 0.0208\\
+		0.03& 0.25& 70& 0.0207\\
+		0.03& 0.4& 70& 0.021\\
+		0.03& 0.5& 70& 0.0215\\
+		\hline
+		0.03& 0& 78& 0.0242\\
+		0.03& 0.1& 78& 0.0222\\
+		0.03& 0.25& 78& 0.0196\\
+		0.03& 0.4& 78& 0.0176\\
+		0.03& 0.5& 78& 0.0166\\
+		\hline\hline
+	\end{tabular}
+\end{table}
+
+\section{Conclusion}
+
+Under current conditions,\footnote{and assumptions that appear conservative relative to those in \textcite{CoccoLopes}}, insuring CHIP Max loans does not appear very costly. With higher loan-to-value ratios, as studied by \textcite{Davidoffhecmvalue}, the put option value can be significantly greater. The proposed annuity enhancement reduces insurance cost for borrowers with relatively short expected longevity or who are relatively patient, but less so for the young and impatient.
+
+\printbibliography 
+
+\end{document}
